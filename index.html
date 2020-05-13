@@ -30,29 +30,9 @@
   <div id="ciao">ciao</div>
   <div id="ciao2">ciao2</div>
 
-  
-
   <script>
     function sensori() {
     let status = document.getElementById('status');
-
-
-    var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'http://demo.thingsboard.io/api/plugins/telemetry/DEVICE/ba720a30-9364-11ea-9a66-358c6522b855/timeseries/SERVER_SCOPE');
-			xhttp3.setRequestHeader('Content-Type', 'application/json');
-			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW92YW5uaS5ydW9jY283OTdAZ21haWwuY29tIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIxYjEzMTcyMC02YTA4LTExZWEtYWQwMi1iMzU3NmI3ZDM5ZjEiLCJmaXJzdE5hbWUiOiJHaW92YW5uaSIsImxhc3ROYW1lIjoiUnVvY2NvIiwiZW5hYmxlZCI6dHJ1ZSwicHJpdmFjeVBvbGljeUFjY2VwdGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMWFmNzlmZTAtNmEwOC0xMWVhLWFkMDItYjM1NzZiN2QzOWYxIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNTg5MTg3MjA2LCJleHAiOjE1OTA5ODcyMDZ9.TbtDcPVidpBvsOpOZlU_1ZzVsOey3RiRWP6_aWNdjuqqGOVlaliizR9XybQOZb0n4Y0H62dTAt-dbMaMWzf0cQ');
-			//var ciao = "'" + '{"x-asis":' + sensor.x.toFixed(10) + ', "y.axis":' + sensor.y.toFixed(10) + ', "z.axis":' + sensor.z.toFixed(10) + "}'" ;
-      console.log("oooooooo");
-      xhttp3.send('{"x-asis": ciao}');
-      xhttp3.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-					
-
-}
-
-			};
-
-    
     if ( 'Accelerometer' in window ) {
       ciao.innerHTML = "Entro nell'if";
       var sensor = new Accelerometer({frequency: 1});
@@ -66,9 +46,9 @@
 			xhttp3.open('POST', 'http://demo.thingsboard.io/api/plugins/telemetry/DEVICE/ba720a30-9364-11ea-9a66-358c6522b855/timeseries/SERVER_SCOPE');
 			xhttp3.setRequestHeader('Content-Type', 'application/json');
 			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW92YW5uaS5ydW9jY283OTdAZ21haWwuY29tIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIxYjEzMTcyMC02YTA4LTExZWEtYWQwMi1iMzU3NmI3ZDM5ZjEiLCJmaXJzdE5hbWUiOiJHaW92YW5uaSIsImxhc3ROYW1lIjoiUnVvY2NvIiwiZW5hYmxlZCI6dHJ1ZSwicHJpdmFjeVBvbGljeUFjY2VwdGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiMWFmNzlmZTAtNmEwOC0xMWVhLWFkMDItYjM1NzZiN2QzOWYxIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNTg5MTg3MjA2LCJleHAiOjE1OTA5ODcyMDZ9.TbtDcPVidpBvsOpOZlU_1ZzVsOey3RiRWP6_aWNdjuqqGOVlaliizR9XybQOZb0n4Y0H62dTAt-dbMaMWzf0cQ');
-			//var ciao = "'" + '{"x-asis":' + sensor.x.toFixed(10) + ', "y.axis":' + sensor.y.toFixed(10) + ', "z.axis":' + sensor.z.toFixed(10) + "}'" ;
-      console.log("oooooooo");
-      xhttp3.send('{"x-asis": ciao}');
+			var ciao = "'" + '{"x-asis":' + sensor.x.toFixed(10) + ', "y.axis":' + sensor.y.toFixed(10) + ', "z.axis":' + sensor.z.toFixed(10) + "}'" ;
+      caio.innerHTML = "CIaoooooneeee"
+      xhttp3.send('{"x-asis":' + sensor.x.toFixed(10)  + ', "y.axis":' + sensor.y.toFixed(10) + ', "z.axis":' + sensor.z.toFixed(10) +  "}");
       xhttp3.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 					
