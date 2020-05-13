@@ -39,9 +39,9 @@
       var sensor = new Accelerometer({frequency: 1});
       sensor.addEventListener('reading', () => {
       var table = document.getElementById("myTable");
-      table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
-      table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
-      table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
+      table.rows[1].cells[0].innerHTML = sensor.x.toFixed(11);  //in this way I add in each cell of the row sensor's data
+      table.rows[1].cells[1].innerHTML = sensor.y.toFixed(11);
+      table.rows[1].cells[2].innerHTML = sensor.z.toFixed(11);
 
       var xhttp3 = new XMLHttpRequest();
 			xhttp3.open('POST', 'https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/ba720a30-9364-11ea-9a66-358c6522b855/timeseries/SERVER_SCOPE');
