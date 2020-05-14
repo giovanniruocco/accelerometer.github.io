@@ -35,12 +35,16 @@
   
 
   <script>
+    var cont=0;
     function sensori() {
+    
     var array = [0.2 , 9.578];
     let status = document.getElementById('status');
+    document.getElementById('status').innerHTML = cont;
     if ( 'Accelerometer' in window ) {
       var sensor = new Accelerometer({frequency: 1});
       sensor.addEventListener('reading', () => {
+      cont++;
       var table = document.getElementById("myTable");
       table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
       table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
@@ -59,7 +63,7 @@
 
 			};
 
-      document.getElementById('status').innerHTML = array[0];
+      document.getElementById('status').innerHTML = array[1];
       });
 
       sensor.start();
