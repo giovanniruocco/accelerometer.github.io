@@ -34,7 +34,7 @@
   <div id="statusx">Movimento asse x</div>
   <div id="statusy">Movimento asse y</div>
   <div id="statusz">Movimento asse z</div>
-  <div id="Movimento">In attesa dei sensori...</div>
+  <div id="movimento">In attesa dei sensori...</div>
   <br>
   
 
@@ -69,9 +69,9 @@
         document.getElementById('statusz').innerHTML = "Movimento asse z: " + c.toFixed(10);
 
         if (a > 3 || b > 3 || c > 3 )
-          document.getElementById('statusz').innerHTML = "Mi muovo";
+          document.getElementById('movimento').innerHTML = "Mi muovo";
         else
-          document.getElementById('statusz').innerHTML = "Sto fermo";
+          document.getElementById('movimento').innerHTML = "Sto fermo";
 
       }
       
