@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometro</h1>
+  <h1>Accelerometrone</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -83,7 +83,7 @@
         num = (cont/5);
         for (var j=0,somm=0; j<5; j++)
         {
-          somm += arrayx[j+ (5*num)];
+          somm += arrayx[j+ (5*(num-1))];
         }
         document.getElementById('mediax').innerHTML = "Media sulle x: " + (somm/5) + " con cont: " + cont + " con num: " + num;
       }
