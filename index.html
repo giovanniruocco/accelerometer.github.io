@@ -54,14 +54,14 @@
     //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
-      var sensor = new Accelerometer({frequency: 5});
+      var sensor = new Accelerometer({frequency: 1});
       var a = 0, b=0, c=0;
       sensor.addEventListener('reading', () => {
       cont++;
       document.getElementById('status').innerHTML = cont;
-      arrayx[cont] = sensor.x.toFixed(10);
-      arrayy[cont] = sensor.y.toFixed(10);
-      arrayz[cont] = sensor.z.toFixed(10);
+      arrayx[cont] = sensor.x;
+      arrayy[cont] = sensor.y;
+      arrayz[cont] = sensor.z;
       if (cont !=0)
       {
         a = arrayx[cont] - arrayx[cont-1];
@@ -78,9 +78,9 @@
           document.getElementById('movimento').innerHTML = "Sto fermo";
       }
 
-      if (cont == 15)
+      if (cont == 5)
       {
-        for (var j=0,somm=0,num=0; j<3; j++)
+        for (var j=0,somm=0,num=0; j<5; j++)
         {
           num = parseFloat(arrayx[j]);
           somm = somm + arrayx[j];
