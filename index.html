@@ -31,6 +31,7 @@
 <body>
   <br>
   <div id="status">Click start and take a look to your sensors</div>
+  <div id="status2">Movimento</div>
   <br>
   
 
@@ -38,14 +39,24 @@
     var cont=0;
     function sensori() {
     
-    var array = [0.2 , 9.578];
+    var array = [];
     let status = document.getElementById('status');
+    
+    //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
       var sensor = new Accelerometer({frequency: 1});
+      var a = 0;
       sensor.addEventListener('reading', () => {
       cont++;
       document.getElementById('status').innerHTML = cont;
+      array[cont-1] = sensor.x.toFixed(10);
+      if (cont !=1)
+      {
+        a = array[cont-1] - array[cont-2];
+        document.getElementById('status2').innerHTML = a;
+      }
+      
       var table = document.getElementById("myTable");
       table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
       table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
