@@ -36,6 +36,7 @@
 
   <script>
     function sensori() {
+    var array = [0.2 , 9.578];
     let status = document.getElementById('status');
     if ( 'Accelerometer' in window ) {
       var sensor = new Accelerometer({frequency: 1});
@@ -58,7 +59,7 @@
 
 			};
 
-      document.getElementById('status').innerHTML = "Accelerometer found";
+      document.getElementById('status').innerHTML = array[0];
       });
 
       sensor.start();
