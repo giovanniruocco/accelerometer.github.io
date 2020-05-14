@@ -63,9 +63,9 @@
         b = arrayy[cont] - arrayy[cont-1];
         c = arrayz[cont] - arrayz[cont-1];
         
-        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a;
-        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b;
-        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c;
+        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a.toFixed(10);
+        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b.toFixed(10);
+        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c.toFixed(10);
       }
       
       var table = document.getElementById("myTable");
