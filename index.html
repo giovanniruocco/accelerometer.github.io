@@ -78,19 +78,20 @@
           document.getElementById('movimento').innerHTML = "Sto fermo";
       }
       var num=0;
-      if (cont % 5 == 0 && cont !=0)
+      var tempo = 7;
+      if (cont % tempo == 0 && cont !=0)
       {
-        num = (cont/5);
-        for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<5; j++)
+        num = (cont/tempo);
+        for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<tempo; j++)
         {
-          sommx += arrayx[j+ (5*(num-1))];
-          sommy += arrayy[j+ (5*(num-1))];
-          sommz += arrayz[j+ (5*(num-1))];
+          sommx += arrayx[j+ (tempo*(num-1))];
+          sommy += arrayy[j+ (tempo*(num-1))];
+          sommz += arrayz[j+ (tempo*(num-1))];
         }
-        document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/5) + " con cont: " + cont + " con num: " + num;
-        document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/5)
-        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/5)
-        document.getElementById('media').innerHTML = "Media Totale: " + (sommx/5 + sommy/5 + sommz/5);
+        document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
+        document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo)
+        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo)
+        document.getElementById('media').innerHTML = "Media Totale: " + (sommx/tempo + sommy/tempo + sommz/tempo);
       }
 
 
