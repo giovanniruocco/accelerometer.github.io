@@ -54,7 +54,7 @@
     //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
-      var sensor = new Accelerometer({frequency: 3});
+      var sensor = new Accelerometer({frequency: 5});
       var a = 0, b=0, c=0;
       sensor.addEventListener('reading', () => {
       cont++;
