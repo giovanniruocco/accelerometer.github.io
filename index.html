@@ -54,9 +54,9 @@
       sensor.addEventListener('reading', () => {
      
       document.getElementById('status').innerHTML = cont;
-      arrayx[cont-1] = sensor.x.toFixed(10);
-      arrayy[cont-1] = sensor.y.toFixed(10);
-      arrayz[cont-1] = sensor.z.toFixed(10);
+      arrayx[cont] = sensor.x.toFixed(10);
+      arrayy[cont] = sensor.y.toFixed(10);
+      arrayz[cont] = sensor.z.toFixed(10);
       if (cont !=0)
       {
         a = arrayx[cont] - arrayx[cont-1];
