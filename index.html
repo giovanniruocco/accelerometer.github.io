@@ -52,16 +52,16 @@
       var sensor = new Accelerometer({frequency: 1});
       var a = 0, b=0, c=0;
       sensor.addEventListener('reading', () => {
-      cont++;
+     
       document.getElementById('status').innerHTML = cont;
       arrayx[cont-1] = sensor.x.toFixed(10);
       arrayy[cont-1] = sensor.y.toFixed(10);
       arrayz[cont-1] = sensor.z.toFixed(10);
-      if (cont !=1)
+      if (cont !=0)
       {
-        a = arrayx[cont-1] - arrayx[cont-2];
-        b = arrayy[cont-1] - arrayy[cont-2];
-        c = arrayz[cont-1] - arrayz[cont-2];
+        a = arrayx[cont] - arrayx[cont-1];
+        b = arrayy[cont] - arrayy[cont-1];
+        c = arrayz[cont] - arrayz[cont-1];
         
         document.getElementById('statusx').innerHTML = "Movimento asse x: " + a;
         document.getElementById('statusy').innerHTML = "Movimento asse y: " + b;
@@ -72,7 +72,7 @@
       table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
       table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
       table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
-
+      cont++;
       var xhttp3 = new XMLHttpRequest();
 			xhttp3.open('POST', 'https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/ba720a30-9364-11ea-9a66-358c6522b855/timeseries/SERVER_SCOPE');
 			xhttp3.setRequestHeader('Content-Type', 'application/json');
