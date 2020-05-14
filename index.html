@@ -31,7 +31,9 @@
 <body>
   <br>
   <div id="status">Click start and take a look to your sensors</div>
-  <div id="status2">Movimento</div>
+  <div id="statusx">Movimento asse x</div>
+  <div id="statusy">Movimento asse y</div>
+  <div id="statusz">Movimento asse z</div>
   <br>
   
 
@@ -39,22 +41,31 @@
     var cont=0;
     function sensori() {
     
-    var array = [];
+    var arrayx = [];
+    var arrayy = [];
+    var arrayz = [];
     let status = document.getElementById('status');
     
     //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
       var sensor = new Accelerometer({frequency: 1});
-      var a = 0;
+      var a = 0, b=0, c=0;
       sensor.addEventListener('reading', () => {
       cont++;
       document.getElementById('status').innerHTML = cont;
-      array[cont-1] = sensor.x.toFixed(10);
+      arrayx[cont-1] = sensor.x.toFixed(10);
+      arrayy[cont-1] = sensor.y.toFixed(10);
+      arrayz[cont-1] = sensor.z.toFixed(10);
       if (cont !=1)
       {
-        a = array[cont-1] - array[cont-2];
-        document.getElementById('status2').innerHTML = a;
+        a = arrayx[cont-1] - arrayx[cont-2];
+        b = arrayy[cont-1] - arrayy[cont-2];
+        c = arrayz[cont-1] - arrayz[cont-2];
+        
+        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a;
+        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b;
+        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c;
       }
       
       var table = document.getElementById("myTable");
