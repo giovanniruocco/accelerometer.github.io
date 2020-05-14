@@ -81,7 +81,7 @@
       table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
       
       var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/9f555220-9468-11ea-b94b-4b8eb8a38a67/attributes/SERVER_SCOPE');
+			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/9f555220-9468-11ea-b94b-4b8eb8a38a67/timeseries/SERVER_SCOPE');
 			xhttp3.setRequestHeader('Content-Type', 'application/json');
 			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBlcmFzZEBsaXZlLml0Iiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiI1NzQ1NzFlMC05NDY4LTExZWEtYjk0Yi00YjhlYjhhMzhhNjciLCJmaXJzdE5hbWUiOiJBbmRyZWEiLCJsYXN0TmFtZSI6IkZlcnJhcmEiLCJlbmFibGVkIjp0cnVlLCJwcml2YWN5UG9saWN5QWNjZXB0ZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiI1NzMyZDQ0MC05NDY4LTExZWEtYjk0Yi00YjhlYjhhMzhhNjciLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoiY2xvdWQudGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE1ODkyOTg3MDIsImV4cCI6MTU5MTA5ODcwMn0.uSgMsReC1xj_FcTYRzUEvF_9Xe4QhZGUnfyLKP4U2ghEk7YU9bFKKV6JqdStrco2gPodYV58XqESVMmelGXtNQ');
 			
