@@ -36,6 +36,10 @@
   <div id="statusz">Movimento asse z</div>
   <div id="movimento">In attesa dei sensori...</div>
   <br>
+  <div id="mediax">Attendo la media sulle x...</div>
+  <div id="mediay">Attendo la media sulle y...</div>
+  <div id="mediaz">Attendo la media sulle z...</div>
+  <div id="media">Media Totale: </div>
   
 
   <script>
@@ -72,8 +76,18 @@
           document.getElementById('movimento').innerHTML = "Mi muovo";
         else
           document.getElementById('movimento').innerHTML = "Sto fermo";
-
       }
+
+      if (cont == 15)
+      {
+        for (var j=0,somm=0; j<15; j++)
+        {
+            somm += arrayx[j];
+        }
+        document.getElementById('mediax').innerHTML = somm;
+      }
+
+
       
       var table = document.getElementById("myTable");
       table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
