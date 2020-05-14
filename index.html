@@ -81,9 +81,9 @@
       table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
       
       var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/f2c82f50-95bb-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
+			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/9f555220-9468-11ea-b94b-4b8eb8a38a67/timeseries/SERVER_SCOPE');
 			xhttp3.setRequestHeader('Content-Type', 'application/json');
-			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTQ0NDQxNywiZXhwIjoxNTkxMjQ0NDE3fQ.nidetsbsl4d7lTZ7Xmm8Y-vmQG04X1e-qYsFKs0TPV1Pq2YnFyTCRQ3tCCFiszA3xxjvm3vBB9kY6lpO3ogIhw');
+			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBlcmFzZEBsaXZlLml0Iiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiI1NzQ1NzFlMC05NDY4LTExZWEtYjk0Yi00YjhlYjhhMzhhNjciLCJmaXJzdE5hbWUiOiJBbmRyZWEiLCJsYXN0TmFtZSI6IkZlcnJhcmEiLCJlbmFibGVkIjp0cnVlLCJwcml2YWN5UG9saWN5QWNjZXB0ZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiI1NzMyZDQ0MC05NDY4LTExZWEtYjk0Yi00YjhlYjhhMzhhNjciLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoiY2xvdWQudGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE1ODkyOTg3MDIsImV4cCI6MTU5MTA5ODcwMn0.uSgMsReC1xj_FcTYRzUEvF_9Xe4QhZGUnfyLKP4U2ghEk7YU9bFKKV6JqdStrco2gPodYV58XqESVMmelGXtNQ');
 			
       xhttp3.send('{"asse X":' + sensor.x.toFixed(10)  + ', "asse Y":' + sensor.y.toFixed(10) + ', "asse Z":' + sensor.z.toFixed(10) +  "}");
       xhttp3.onreadystatechange = function() {
