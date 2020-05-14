@@ -77,15 +77,15 @@
         else
           document.getElementById('movimento').innerHTML = "Sto fermo";
       }
-
+      var num=0;
       if (cont % 5 == 0 && cont !=0)
       {
+        num = (cont/5);
         for (var j=0,somm=0,num=0; j<5; j++)
         {
-          num = (cont/5);
           somm += arrayx[j*num];
         }
-        document.getElementById('mediax').innerHTML = (somm/5);
+        document.getElementById('mediax').innerHTML = "Media sulle x: " + (somm/5) + " con num: " + num;
       }
 
 
