@@ -81,11 +81,17 @@
       if (cont % 5 == 0 && cont !=0)
       {
         num = (cont/5);
-        for (var j=0,somm=0; j<5; j++)
+        for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<5; j++)
         {
-          somm += arrayx[j+ (5*(num-1))];
+          sommx += arrayx[j+ (5*(num-1))];
+          sommy += arrayy[j+ (5*(num-1))];
+          sommz += arrayz[j+ (5*(num-1))];
+          somm += sommx + sommy + sommz;
         }
-        document.getElementById('mediax').innerHTML = "Media sulle x: " + (somm/5) + " con cont: " + cont + " con num: " + num;
+        document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/5) + " con cont: " + cont + " con num: " + num;
+        document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/5)
+        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/5)
+        document.getElementById('media').innerHTML = "Media Totale: " + (somm/5)
       }
 
 
