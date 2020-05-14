@@ -86,12 +86,11 @@
           sommx += arrayx[j+ (5*(num-1))];
           sommy += arrayy[j+ (5*(num-1))];
           sommz += arrayz[j+ (5*(num-1))];
-          somm += sommx + sommy + sommz;
         }
         document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/5) + " con cont: " + cont + " con num: " + num;
         document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/5)
         document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/5)
-        document.getElementById('media').innerHTML = "Media Totale: " + (somm/5)
+        document.getElementById('media').innerHTML = "Media Totale: " + (sommx/5 + sommy/5 + sommz/5);
       }
 
 
