@@ -83,7 +83,7 @@
         num = (cont/5);
         for (var j=0,somm=0; j<5; j++)
         {
-          somm += arrayx[j*num];
+          somm += arrayx[j+ (5*num)];
         }
         document.getElementById('mediax').innerHTML = "Media sulle x: " + (somm/5) + " con cont: " + cont + " con num: " + num;
       }
