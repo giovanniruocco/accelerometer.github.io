@@ -88,9 +88,9 @@
           sommy += arrayy[j+ (tempo*(num-1))];
           sommz += arrayz[j+ (tempo*(num-1))];
         }
-        document.getElementById('mediax').innerHTML = "Media sulle x: " + (Math.abs(sommx/tempo)) + " con cont: " + cont + " con num: " + num;
-        document.getElementById('mediay').innerHTML = "Media sulle y: " + (Math.abs(sommy/tempo))
-        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (Math.abs(sommz/tempo))
+        document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
+        document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
+        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
         document.getElementById('media').innerHTML = "Media Totale: " + (Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo));
       }
 
