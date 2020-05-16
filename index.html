@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometro</h1>
+  <h1>Accelerometrone</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -50,13 +50,16 @@
     var arrayx = [];
     var arrayy = [];
     var arrayz = [];
+    var a=[];
+    var b=[];
+    var c=[];
     let status = document.getElementById('status');
     
     //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
       var sensor = new Accelerometer({frequency: 1});
-      var a = 0, b=0, c=0;
+     
       sensor.addEventListener('reading', () => {
       cont++;
       document.getElementById('status').innerHTML = cont;
@@ -65,15 +68,15 @@
       arrayz[cont] = sensor.z;
       if (cont !=0)
       {
-        a = arrayx[cont] - arrayx[cont-1];
-        b = arrayy[cont] - arrayy[cont-1];
-        c = arrayz[cont] - arrayz[cont-1];
+        a[cont-1] = arrayx[cont] - arrayx[cont-1];
+        b[cont-1] = arrayy[cont] - arrayy[cont-1];
+        c[cont-1] = arrayz[cont] - arrayz[cont-1];
         
         document.getElementById('statusx').innerHTML = "Movimento asse x: " + a.toFixed(10);
         document.getElementById('statusy').innerHTML = "Movimento asse y: " + b.toFixed(10);
         document.getElementById('statusz').innerHTML = "Movimento asse z: " + c.toFixed(10);
 
-        if (a > 1 || b > 1 || c > 1 )
+        if (a[cont-1] > 1 || b[cont-1] > 1 || c[cont-1] > 1 )
           document.getElementById('movimento').innerHTML = "Mi muovo";
         else
           document.getElementById('movimento').innerHTML = "Sto fermo";
