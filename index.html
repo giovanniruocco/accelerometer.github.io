@@ -93,7 +93,7 @@
             sommz += Math.abs(c[j+ (tempo*(num-1))]);
           }
           var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
-          var trsh = 0.5;
+          var trsh = 1;
           document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
           document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
           document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
