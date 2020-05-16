@@ -58,7 +58,7 @@
     //document.getElementById('status').innerHTML = array[9];
     
     if ( 'Accelerometer' in window ) {
-      var sensor = new Accelerometer({frequency: 1});
+      var sensor = new Accelerometer({frequency: 2});
      
       sensor.addEventListener('reading', () => {
       cont++;
@@ -93,14 +93,14 @@
           sommz += c[j+ (tempo*(num-1))];
         }
         var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
-        var trsh = 13;
+        var trsh = 1;
         document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
         document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
         document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
         document.getElementById('media').innerHTML = "Signal Magnitude Area: " + SMA;
 
 
-        if (SMA < (trsh - 2) || SMA > (trsh + 2))
+        if (SMA > trsh)
           document.getElementById('movement').innerHTML = "Mi sto muovendo";
         
         else
