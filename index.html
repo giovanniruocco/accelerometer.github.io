@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometro</h1>
+  <h1>Accelerometrons</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -80,34 +80,34 @@
           document.getElementById('movimento').innerHTML = "Mi muovo";
         else
           document.getElementById('movimento').innerHTML = "Sto fermo";
-      }
-      var num=0;
-      var tempo = 10;
-      if (cont % tempo == 0 && cont !=0)
-      {
-        num = (cont/tempo);
-        for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<tempo; j++)
+      
+        var num=0;
+        var tempo = 10;
+        if (cont % tempo == 0)
         {
-          sommx += a[j+ (tempo*(num-1))];
-          sommy += b[j+ (tempo*(num-1))];
-          sommz += c[j+ (tempo*(num-1))];
+          num = (cont/tempo);
+          for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<tempo; j++)
+          {
+            sommx += a[j+ (tempo*(num-1))];
+            sommy += b[j+ (tempo*(num-1))];
+            sommz += c[j+ (tempo*(num-1))];
+          }
+          var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
+          var trsh = 0.5;
+          document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
+          document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
+          document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
+          document.getElementById('media').innerHTML = "Signal Magnitude Area: " + SMA;
+
+
+          if (SMA > trsh)
+            document.getElementById('movement').innerHTML = "Mi sto muovendo";
+          
+          else
+            document.getElementById('movement').innerHTML = "Sono fermo";
+          
         }
-        var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
-        var trsh = 0.5;
-        document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
-        document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
-        document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
-        document.getElementById('media').innerHTML = "Signal Magnitude Area: " + SMA;
-
-
-        if (SMA > trsh)
-          document.getElementById('movement').innerHTML = "Mi sto muovendo";
-        
-        else
-          document.getElementById('movement').innerHTML = "Sono fermo";
-        
       }
-
 
       
       var table = document.getElementById("myTable");
