@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometrons</h1>
+  <h1>Accelerometro</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -107,35 +107,39 @@
             document.getElementById('movement').innerHTML = "Sono fermo";
           
         }
+        var table = document.getElementById("myTable");
+        table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
+        table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
+        table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
+        
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/2c79d070-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
+        xhttp3.setRequestHeader('Content-Type', 'application/json');
+        xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
+        
+        xhttp3.send('{"axis":' + sensor.x.toFixed(10) +  ', "movement":' + a[cont-1].toFixed(10) +  "}");
+
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/33865190-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
+        xhttp3.setRequestHeader('Content-Type', 'application/json');
+        xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
+        
+        xhttp3.send('{"axis":' + sensor.y.toFixed(10) +  ', "movement":' + b[cont-1].toFixed(10) +  "}");
+
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/3b7bac10-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
+        xhttp3.setRequestHeader('Content-Type', 'application/json');
+        xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
+        
+        xhttp3.send('{"axis":' + sensor.z.toFixed(10) +  ', "movement":' + c[cont-1].toFixed(10) +  "}");
+        //document.getElementById('status').innerHTML = array[1];
+      
+      
+      
       }
 
       
-      var table = document.getElementById("myTable");
-      table.rows[1].cells[0].innerHTML = sensor.x.toFixed(10);  //in this way I add in each cell of the row sensor's data
-      table.rows[1].cells[1].innerHTML = sensor.y.toFixed(10);
-      table.rows[1].cells[2].innerHTML = sensor.z.toFixed(10);
       
-      var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/2c79d070-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
-			xhttp3.setRequestHeader('Content-Type', 'application/json');
-			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
-			
-      xhttp3.send('{"axis":' + sensor.x.toFixed(10) +  ', "absAxis":' + Math.abs(sensor.x.toFixed(10)) +  "}");
-
-      var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/33865190-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
-			xhttp3.setRequestHeader('Content-Type', 'application/json');
-			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
-			
-      xhttp3.send('{"axis":' + sensor.y.toFixed(10) +  ', "absAxis":' + Math.abs(sensor.y.toFixed(10)) +  "}");
-
-      var xhttp3 = new XMLHttpRequest();
-			xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/3b7bac10-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
-			xhttp3.setRequestHeader('Content-Type', 'application/json');
-			xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
-			
-      xhttp3.send('{"axis":' + sensor.z.toFixed(10) +  ', "absAxis":' + Math.abs(sensor.z.toFixed(10)) +  "}");
-      //document.getElementById('status').innerHTML = array[1];
       });
 
       sensor.start();
