@@ -97,7 +97,7 @@
         document.getElementById('media').innerHTML = "Signal Magnitude Area: " + SMA;
 
 
-        if (SMA < (trsh - 2) && SMA > (trsh + 2))
+        if (SMA < (trsh - 2) || SMA > (trsh + 2))
           document.getElementById('movement').innerHTML = "Mi sto muovendo";
         
         else
