@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometrone</h1>
+  <h1>Accelerometronea</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -72,9 +72,9 @@
         b[cont-1] = arrayy[cont] - arrayy[cont-1];
         c[cont-1] = arrayz[cont] - arrayz[cont-1];
         
-        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a.toFixed(10);
-        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b.toFixed(10);
-        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c.toFixed(10);
+        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a[cont-1].toFixed(10);
+        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b[cont-1].toFixed(10);
+        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c[cont-1].toFixed(10);
 
         if (a[cont-1] > 1 || b[cont-1] > 1 || c[cont-1] > 1 )
           document.getElementById('movimento').innerHTML = "Mi muovo";
