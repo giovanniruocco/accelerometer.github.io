@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometrons</h1>
+  <h1>Accelerometro</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -89,8 +89,8 @@
         for (var j=0,somm=0,sommx=0,sommy=0,sommz=0; j<tempo; j++)
         {
           sommx += a[j+ (tempo*(num-1))];
-          sommy += arrayy[j+ (tempo*(num-1))];
-          sommz += arrayz[j+ (tempo*(num-1))];
+          sommy += b[j+ (tempo*(num-1))];
+          sommz += c[j+ (tempo*(num-1))];
         }
         var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
         var trsh = 13;
