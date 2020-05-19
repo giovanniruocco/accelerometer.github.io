@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometrone</h1>
+  <h1>Accelerometroo</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -71,7 +71,7 @@
      
       sensor.addEventListener('reading', () => {
       cont++;
-      document.getElementById('status').innerHTML = "Measurement number: " + (myip);
+      document.getElementById('status').innerHTML = "Measurement number: " + (cont+1);
       arrayx[cont] = sensor.x;
       arrayy[cont] = sensor.y;
       arrayz[cont] = sensor.z;
@@ -121,7 +121,7 @@
         xhttp3.setRequestHeader('Content-Type', 'application/json');
         xhttp3.setRequestHeader('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaW9ubmkwNzk3QGdtYWlsLmNvbSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiOTI0ZTI4MDAtOTViYi0xMWVhLWEwZDktYWI2MzcyNTBlNWU5IiwiZmlyc3ROYW1lIjoiR2lvdmFubmkiLCJsYXN0TmFtZSI6IlJ1b2NjbyIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6IjkyM2IzYzQwLTk1YmItMTFlYS1hMGQ5LWFiNjM3MjUwZTVlOSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJjbG91ZC50aGluZ3Nib2FyZC5pbyIsImlhdCI6MTU4OTUzNDgxMCwiZXhwIjoxNTkxMzM0ODEwfQ.USf-oCOOCtIzfKYz6zLAOS3gJ_ot0CiHPg5i3P2LsOmoY4D_SycRer2rzriBZcpP-_JgScQZZvvWNjzdCC0plg');
         
-        xhttp3.send('{"axis":' + sensor.x.toFixed(10) +  ', "movement":' + Math.abs(a[cont-1].toFixed(10)) +  "}");
+        xhttp3.send('{"axis":' + sensor.x.toFixed(10) +  ', "movement":' + Math.abs(a[cont-1].toFixed(10)) + ', "ip":' + myip + "}");
 
         var xhttp3 = new XMLHttpRequest();
         xhttp3.open('POST', 'https://cloud.thingsboard.io/api/plugins/telemetry/DEVICE/33865190-968c-11ea-a0d9-ab637250e5e9/timeseries/SERVER_SCOPE');
