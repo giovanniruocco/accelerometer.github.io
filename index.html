@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometroo</h1>
+  <h1>Accelerometro</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -71,7 +71,7 @@
      
       sensor.addEventListener('reading', () => {
       cont++;
-      document.getElementById('status').innerHTML = "Measurement number: " + (cont+1);
+      document.getElementById('status').innerHTML = "Measurement number: " + (myip);
       arrayx[cont] = sensor.x;
       arrayy[cont] = sensor.y;
       arrayz[cont] = sensor.z;
