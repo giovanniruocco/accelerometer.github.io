@@ -32,20 +32,19 @@
   <br>
   <div id="ip">IP</div>
   <div id="status">Click start and take a look to your sensors</div>
-  <div id="statusx">Movimento asse x</div>
-  <div id="statusy">Movimento asse y</div>
-  <div id="statusz">Movimento asse z</div>
-  <div id="movimento">In attesa dei sensori...</div>
+  <div id="statusx">Movement x-axis: </div>
+  <div id="statusy">Movement y-axis: </div>
+  <div id="statusz">Movement z-axis: </div>
   <br>
-  <div id="mediax">Attendo la media sulle x...</div>
-  <div id="mediay">Attendo la media sulle y...</div>
-  <div id="mediaz">Attendo la media sulle z...</div>
-  <div id="media">Signal Magnitude Area: </div>
-  <div id="movement">In attesa delle misurazioni... </div>
+  <div id="mediax">Waiting for average of x-axis movement... </div>
+  <div id="mediay">Waiting for average of y-axis movement...</div>
+  <div id="mediaz">Waiting for average of z-axis movement....</div>
+  <div id="media">Total Average: </div>
+  <div id="movement">Waiting for measurements... </div>
   
   <script type="application/javascript">
     function getIP(json) {
-      document.getElementById("ip").innerHTML = json.ip;
+      document.getElementById("ip").innerHTML = "Your IP: " + json.ip;
     }
     </script>
   
@@ -71,7 +70,7 @@
      
       sensor.addEventListener('reading', () => {
       cont++;
-      document.getElementById('status').innerHTML = cont;
+      document.getElementById('status').innerHTML = "Measurement number: " + (cont+1);
       arrayx[cont] = sensor.x;
       arrayy[cont] = sensor.y;
       arrayz[cont] = sensor.z;
@@ -81,15 +80,10 @@
         b[cont-1] = arrayy[cont] - arrayy[cont-1];
         c[cont-1] = arrayz[cont] - arrayz[cont-1];
         
-        document.getElementById('statusx').innerHTML = "Movimento asse x: " + a[cont-1].toFixed(10);
-        document.getElementById('statusy').innerHTML = "Movimento asse y: " + b[cont-1].toFixed(10);
-        document.getElementById('statusz').innerHTML = "Movimento asse z: " + c[cont-1].toFixed(10);
+        document.getElementById('statusx').innerHTML = "Movement x-axis: " + a[cont-1].toFixed(10);
+        document.getElementById('statusy').innerHTML = "Movement y-axis: " + b[cont-1].toFixed(10);
+        document.getElementById('statusz').innerHTML = "Movement z-axis: " + c[cont-1].toFixed(10);
 
-        if (a[cont-1] > 1 || b[cont-1] > 1 || c[cont-1] > 1 )
-          document.getElementById('movimento').innerHTML = "Mi muovo";
-        else
-          document.getElementById('movimento').innerHTML = "Sto fermo";
-      
         var num=0;
         var tempo = 10;
         if (cont % tempo == 0)
@@ -103,17 +97,17 @@
           }
           var SMA = Math.abs(sommx/tempo) + Math.abs(sommy/tempo) + Math.abs(sommz/tempo);
           var trsh = 1;
-          document.getElementById('mediax').innerHTML = "Media sulle x: " + (sommx/tempo) + " con cont: " + cont + " con num: " + num;
-          document.getElementById('mediay').innerHTML = "Media sulle y: " + (sommy/tempo);
-          document.getElementById('mediaz').innerHTML = "Media sulle z: " + (sommz/tempo);
-          document.getElementById('media').innerHTML = "Signal Magnitude Area: " + SMA;
+          document.getElementById('mediax').innerHTML = "Average of x-axis movement: " + (sommx/tempo);
+          document.getElementById('mediay').innerHTML = "Average of y-axis movement: " + (sommy/tempo);
+          document.getElementById('mediaz').innerHTML = "Average of z-axis movement: " + (sommz/tempo);
+          document.getElementById('media').innerHTML = "Total Average from the last " + tempo + " measurements: " + SMA;
 
 
           if (SMA > trsh)
-            document.getElementById('movement').innerHTML = "Mi sto muovendo";
+            document.getElementById('movement').innerHTML = "I'm moving";
           
           else
-            document.getElementById('movement').innerHTML = "Sono fermo";
+            document.getElementById('movement').innerHTML = "I'm still";
           
         }
         var table = document.getElementById("myTable");
