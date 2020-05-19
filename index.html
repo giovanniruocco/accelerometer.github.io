@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Accelerometer Sensor</title>  
-  <h1>Accelerometro</h1>
+  <h1>Accelerometroo</h1>
   <button onclick="sensori()">Start</button>
   <br/>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen, projection"
@@ -44,7 +44,8 @@
   
   <script type="application/javascript">
     function getIP(json) {
-      document.getElementById("ip").innerHTML = "Your IP: " + json.ip;
+      let myip = json.ip;
+      document.getElementById("ip").innerHTML = "Your IP: " + myip;
     }
     </script>
   
@@ -80,7 +81,7 @@
         b[cont-1] = arrayy[cont] - arrayy[cont-1];
         c[cont-1] = arrayz[cont] - arrayz[cont-1];
         
-        document.getElementById('statusx').innerHTML = "Movement x-axis: " + a[cont-1].toFixed(10) + json.ip;
+        document.getElementById('statusx').innerHTML = "Movement x-axis: " + a[cont-1].toFixed(10);
         document.getElementById('statusy').innerHTML = "Movement y-axis: " + b[cont-1].toFixed(10);
         document.getElementById('statusz').innerHTML = "Movement z-axis: " + c[cont-1].toFixed(10);
 
